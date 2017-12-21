@@ -3,7 +3,7 @@
     <head>
         <title>Produtos</title>
         <link rel="stylesheet" href="<?=base_url("assets/css/bootstrap.css") ?>">
-        <meta http-equiv="content-type" content="text/html"; charset="utf-8"
+        <meta http-equiv="content-type" content="text/html"; charset="utf-8">
     </head>
     <body>
         <div class="container">
@@ -20,7 +20,10 @@
                 <?php foreach($produtos as $produto) : ?>
                     <tr>
                         <td>
-                            <?= $produto["nome"] ?>
+                            <?= anchor("produtos/{$produto ['id']}", $produto["nome"]) ?>
+                        </td>
+                        <td>
+                            <?= character_limiter(html_escape($produto["descricao"]),10) ?>
                         </td>
                         <td>
                             <?= numeroEmReais($produto["preco"]) ?>
